@@ -1,6 +1,6 @@
 {
   "ui_defs": [
-    "ui/chat_screen.json",
+    "ui/_global_variables.json",
     "ui/hud_screen.json"
   ]
 }
