@@ -1,0 +1,96 @@
+{
+  "namespace": "hud",
+
+  "ct_hidden_toggle@common.toggle": {
+    "size": [
+      0,
+      0
+    ],
+    "alpha": 0.0,
+    "focus_enabled": false,
+    "tts_ignore_count": true,
+    "$toggle_name": "ct_trigger_state",
+    "$toggle_binding_type": "none",
+    "$toggle_default_state": false,
+    "$toggle_property_bag": {
+      "#toggle_state": false
+    },
+    "$enable_directional_toggling": true,
+    "$toggle_on_button": "button.ct_trigger_internal_on",
+    "$toggle_off_button": "button.ct_trigger_internal_off",
+    "$unchecked_control": "common.empty_panel",
+    "$checked_control": "common.empty_panel",
+    "$unchecked_hover_control": "common.empty_panel",
+    "$checked_hover_control": "common.empty_panel",
+    "$unchecked_locked_control": "common.empty_panel",
+    "$checked_locked_control": "common.empty_panel",
+    "$unchecked_locked_hover_control": "common.empty_panel",
+    "$checked_locked_hover_control": "common.empty_panel",
+    "button_mappings": [
+      {
+        "from_button_id": "button.chat_trigger_show",
+        "to_button_id": "button.ct_trigger_internal_on",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.chat_trigger_hide",
+        "to_button_id": "button.ct_trigger_internal_off",
+        "mapping_type": "global"
+      }
+    ]
+  },
+
+  "ct_image_overlay": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": 100,
+    "controls": [
+      {
+        "ct_state@hud.ct_hidden_toggle": {}
+      },
+      {
+        "ct_image": {
+          "type": "image",
+          "texture": "$chat_trigger_texture",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [
+            0,
+            -24
+          ],
+          "size": [
+            128,
+            128
+          ],
+          "keep_ratio": true,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "ct_state",
+              "resolve_sibling_scope": true,
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": [
+          {
+            "ct_image_overlay@hud.ct_image_overlay": {}
+          }
+        ]
+      }
+    ]
+  }
+}

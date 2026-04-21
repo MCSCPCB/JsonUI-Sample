@@ -1,0 +1,5 @@
+{
+  "$flag_for_chat_trigger_show": "开始",
+  "$flag_for_chat_trigger_hide": "结束",
+  "$chat_trigger_texture": "textures/ui/chat_trigger_placeholder"
+}

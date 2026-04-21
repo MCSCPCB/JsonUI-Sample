@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Chat Trigger JSON UI Template RP",
+    "description": "Strict chat trigger JSON UI template. Send 开始 to show the image and 结束 to hide it.",
+    "uuid": "90edb306-e96a-4ac7-a33d-9d390afb3b08",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "09658c60-e0fd-4355-b9ae-7b6fe6799eac",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

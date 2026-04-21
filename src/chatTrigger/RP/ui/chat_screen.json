@@ -1,0 +1,96 @@
+{
+  "namespace": "chat",
+
+  "send_button@common_buttons.light_text_form_fitting_button": {
+    "$pressed_button_name": "button.ct_send_dispatch",
+    "$anchor": "bottom_right",
+    "size": [
+      "100%c",
+      27
+    ],
+    "$tts_enabled|default": true,
+    "focus_enabled": "$tts_enabled",
+    "$focus_id": "send_button_focus_id",
+    "$focus_override_up": "paste_button_focus_id",
+    "$button_type_panel": "chat.send_panel",
+    "$button_tts_header": "#send_button_accessibility_text",
+    "bindings": [
+      {
+        "binding_name": "#send_button_visible",
+        "binding_name_override": "#enabled"
+      },
+      {
+        "binding_name": "#send_button_accessibility_text"
+      }
+    ]
+  },
+
+  "chat_screen@common.base_screen": {
+    "close_on_player_hurt": true,
+    "$screen_content": "chat.chat_screen_content",
+    "$screen_bg_content": "chat.chat_background",
+    "bindings": [
+      {
+        "binding_type": "global",
+        "binding_name": "#message_text_box_content"
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_exit",
+        "to_button_id": "button.chat_menu_cancel",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.chat_menu_cancel",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.ct_send_dispatch",
+        "to_button_id": "button.chat_trigger_show",
+        "mapping_type": "global",
+        "consume_event": true,
+        "ignored": "(not (#message_text_box_content = $flag_for_chat_trigger_show))"
+      },
+      {
+        "from_button_id": "button.ct_send_dispatch",
+        "to_button_id": "button.chat_trigger_hide",
+        "mapping_type": "global",
+        "consume_event": true,
+        "ignored": "(not (#message_text_box_content = $flag_for_chat_trigger_hide))"
+      },
+      {
+        "from_button_id": "button.ct_send_dispatch",
+        "to_button_id": "button.send",
+        "mapping_type": "global",
+        "consume_event": true,
+        "ignored": "((#message_text_box_content = $flag_for_chat_trigger_show) or (#message_text_box_content = $flag_for_chat_trigger_hide))"
+      },
+      {
+        "from_button_id": "button.send",
+        "to_button_id": "button.chat_trigger_show",
+        "mapping_type": "global",
+        "consume_event": true,
+        "ignored": "(not (#message_text_box_content = $flag_for_chat_trigger_show))"
+      },
+      {
+        "from_button_id": "button.send",
+        "to_button_id": "button.chat_trigger_hide",
+        "mapping_type": "global",
+        "consume_event": true,
+        "ignored": "(not (#message_text_box_content = $flag_for_chat_trigger_hide))"
+      },
+      {
+        "from_button_id": "button.chat_trigger_show",
+        "to_button_id": "button.chat_menu_cancel",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.chat_trigger_hide",
+        "to_button_id": "button.chat_menu_cancel",
+        "mapping_type": "global"
+      }
+    ]
+  }
+}
